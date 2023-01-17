@@ -13,6 +13,6 @@ public interface IProductService {
     Product delete(UUID uuid);
     Product delete(Product product);
     List<Product> getAllProducts();
-    List<Product> getProductsCheaperThan(double maxPrice);
+    List<Product> getProductsCheaperOrPricierThan(double price, String condition);
     Optional<Product> getProductById(UUID id);
 }
