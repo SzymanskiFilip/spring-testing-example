@@ -12,9 +12,17 @@ import java.util.UUID;
 public interface ProductRepository extends CrudRepository<Product, UUID> {
 
 
-    @Query(nativeQuery = true, value = "select * from products where products.price < ?1")
+    /**
+     * @param price
+     * @return All Products with the price lower than or equal to the passed price.
+     */
+    @Query(nativeQuery = true, value = "select * from products where products.price <= ?1")
     List<Product> getProductsCheaperThan(double price);
 
-    @Query(nativeQuery = true, value = "select * from products where products.price > ?1")
+    /**
+     * @param price
+     * @return All Products with the price higher than or equal to the passed price.
+     */
+    @Query(nativeQuery = true, value = "select * from products where products.price >= ?1")
     List<Product> getProductsPricierThan(double price);
 }
