@@ -35,7 +35,7 @@ public class Controller {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<Product> saveProduct(@RequestBody final ProductDto productDto){
+    public ResponseEntity<Product> saveProduct(@RequestBody final ProductDto productDto) throws Exception {
         return ResponseEntity.ok(productService.save(productDto));
     }
 

@@ -18,11 +18,17 @@ public class ProductService implements IProductService {
     private final ProductRepository productRepository;
 
     @Override
-    public Product save(ProductDto productDto) {
+    public Product save(ProductDto productDto) throws Exception {
         Product p = new Product();
         p.setCompany(productDto.getCompany());
         p.setName(productDto.getName());
         p.setPrice(productDto.getPrice());
+        p.setId(UUID.randomUUID());
+
+        //JUST FOR THE EXAMPLE PURPOSES
+        if(productDto.getCompany().equals("THROW_EXCEPTION")){
+            throw new Exception("SHOULD ERROR");
+        }
 
         return productRepository.save(p);
     }

@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IProductService {
-    Product save(ProductDto productDto);
+    Product save(ProductDto productDto) throws Exception;
     Product delete(UUID uuid);
     Product delete(Product product);
     List<Product> getAllProducts();
